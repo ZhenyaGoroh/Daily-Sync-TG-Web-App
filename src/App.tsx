@@ -13,9 +13,9 @@ function App() {
 
   const sendMessage = async () => {
     const chatId = '798698474';
-    
+
     const botToken = import.meta.env.VITE_BOT_TOKEN as string;
-    const text = `Results: ${results}, Plans: ${plans}`;
+    const text = `✅**Results**: ${results}\n 📅**Plans**: ${plans}`;
 
     await fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`);
   };

@@ -18,7 +18,7 @@ const Input = ({ onChange, value, ...rest }: InputProps) => {
   return (
     <textarea
       ref={textareaRef}
-      className="bg-black border border-green rounded text-green outline-none p-2 resize-none"
+      className="bg-black border border-green rounded text-green text-xl font-medium outline-none p-2 resize-none"
       value={value}
       onChange={onChange}
       {...rest}
