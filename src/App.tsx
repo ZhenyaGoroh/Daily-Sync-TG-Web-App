@@ -31,7 +31,7 @@ function App() {
         <div style={gradientText} className="font-extrabold text-4xl">
           Name:
         </div>
-        <Input value={name} onChange={(e) => setName(e.target.value)} />
+        <input className="bg-black border border-green rounded text-green text-xl font-medium outline-none p-2 resize-none" value={name} onChange={(e) => setName(e.target.value)} />
         <div style={gradientText} className="font-extrabold text-4xl">
           Results:
         </div>
