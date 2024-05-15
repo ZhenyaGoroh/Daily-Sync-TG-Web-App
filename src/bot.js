@@ -37,10 +37,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var telegraf_1 = require("telegraf");
-var filters_1 = require("telegraf/filters");
 require("dotenv/config");
-console.log(process.env.VITE_BOT_TOKEN);
 var bot = new telegraf_1.Telegraf(process.env.VITE_BOT_TOKEN);
+bot.start(function (ctx) {
+    ctx.reply("https://t.me/dailySync_bot/DailySync");
+});
 bot.command("quit", function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -59,7 +60,7 @@ bot.command("quit", function (ctx) { return __awaiter(void 0, void 0, void 0, fu
         }
     });
 }); });
-bot.on((0, filters_1.message)("text"), function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
+bot.on('message', function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, ctx.telegram.sendMessage(ctx.message.chat.id, "Hello ".concat(ctx.from.username), {

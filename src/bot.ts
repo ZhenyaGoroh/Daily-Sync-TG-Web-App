@@ -1,5 +1,4 @@
 import { Telegraf, Context, Markup } from "telegraf";
-import { message } from "telegraf/filters";
 import 'dotenv/config'
 
 interface MyContext extends Context {
@@ -9,6 +8,10 @@ interface MyContext extends Context {
 
 const bot = new Telegraf<MyContext>(process.env.VITE_BOT_TOKEN as string);
 
+bot.start((ctx) => {
+  ctx.reply("https://t.me/dailySync_bot/DailySync");
+});
+
 bot.command("quit", async (ctx) => {
   // Explicit usage
   await ctx.telegram.leaveChat(ctx.message.chat.id);
@@ -17,7 +20,7 @@ bot.command("quit", async (ctx) => {
   await ctx.leaveChat();
 });
 
-bot.on(message("text"), async (ctx) => {
+bot.on('message', async (ctx) => {
   await ctx.telegram.sendMessage(
     ctx.message.chat.id,
     `Hello ${ctx.from.username}`,
