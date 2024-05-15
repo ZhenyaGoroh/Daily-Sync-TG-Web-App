@@ -13,6 +13,7 @@ function App() {
 
   const sendMessage = async () => {
     const chatId = '798698474';
+    
     const botToken = import.meta.env.VITE_BOT_TOKEN as string;
     const text = `Results: ${results}, Plans: ${plans}`;
 
